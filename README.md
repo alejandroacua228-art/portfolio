@@ -1,2 +1,2 @@
 # portfolio
-ortfolio profesional de Alejandro Lindström - Automatización, Python, IA
+Portfolio profesional de Alejandro Lindström - Automatización, Python, IA
