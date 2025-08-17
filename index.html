@@ -1,173 +1,359 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- ====== SEO básico ====== -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alejandro E. Lindström — Portfolio</title>
-  <meta name="description" content="Especialista en Automatización y Análisis de Datos para banca y fintech. Proyectos con Python, n8n, Streamlit y APIs."/>
-  <style>
-    :root{
-      --bg:#f6f7fb; --card:#ffffff; --ink:#1f2937; --muted:#6b7280;
-      --brand:#0f766e; --brand-2:#115e59; --chip:#eef2ff; --line:#e5e7eb;
-      --shadow:0 8px 24px rgba(2,6,23,.08); --radius:18px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
-      color:var(--ink); background:linear-gradient(180deg,#f0fdfa 0%, var(--bg) 30%);
-    }
-    header{
-      padding:56px 20px 36px; text-align:center; position:relative; overflow:hidden;
-      background: radial-gradient(1200px 400px at 50% -80px, #ccfbf1 0%, transparent 60%);
-    }
-    header h1{ margin:0; font-size: clamp(28px, 4vw, 40px) }
-    header p{ margin:10px 0 0; color:var(--muted); font-size:clamp(14px,2.2vw,16px) }
-    .badge{
-      display:inline-block; margin-top:14px; padding:6px 12px; border-radius:999px;
-      background:#ecfeff; color:var(--brand-2); font-weight:600; font-size:14px; border:1px solid #cffafe;
-    }
-    .wrap{ max-width: 980px; margin: 0 auto; padding: 0 20px 60px }
-    section{ background:var(--card); box-shadow:var(--shadow); border-radius:var(--radius); padding:28px; margin:22px 0 }
-    section h2{ margin:0 0 14px; font-size:clamp(20px,2.6vw,24px) }
-    .lead{ color:var(--muted); line-height:1.55 }
-    .grid{ display:grid; gap:16px }
-    @media (min-width: 820px){ .grid{ grid-template-columns: repeat(2, 1fr) } }
-    .card{
-      background:#fff; border:1px solid #eef2f7; border-radius:14px; padding:18px;
-      transition: transform .15s, box-shadow .15s, border-color .15s;
-    }
-    .card:hover{ transform:translateY(-2px); box-shadow:var(--shadow); border-color:#e5e7eb }
-    .card h3{ margin:0 0 8px; font-size:18px }
-    .card p{ margin:0 0 10px; color:var(--muted); line-height:1.55 }
-    .pill{ display:inline-block; font-size:12px; background:#eef2ff; padding:6px 10px; border-radius:999px; margin:8px 6px 0 0 }
-    .shot{ margin-top:12px; border-radius:12px; overflow:hidden; border:1px solid var(--line); background:#fafafa; aspect-ratio:16/9 }
-    .shot img{ width:100%; height:100%; object-fit:cover; display:block }
-    .chips{ display:flex; flex-wrap:wrap; gap:8px }
-    .chip{ background:#ecfeff; color:#134e4a; border:1px solid #99f6e4; padding:8px 12px; border-radius:999px; font-size:13px; font-weight:600 }
-    .cta{ display:inline-block; background:var(--brand); color:#fff; padding:12px 16px; border-radius:10px; text-decoration:none; font-weight:700; border:1px solid #0d9488; box-shadow:0 8px 18px rgba(13,148,136,.18) }
-    .cta:hover{ background:var(--brand-2) }
-    .muted{ color:var(--muted) }
-    footer{ text-align:center; color:var(--muted); padding:24px 0 40px }
-  </style>
-</head>
-<body>
+  <title>Alejandro E. Lindström | Automatización & Datos para Banca</title>
+  <meta name="description" content="Portfolio profesional orientado a banca/fintech. Automatización de procesos (n8n, OCR, APIs), scraping financiero, dashboards con Python/Streamlit y análisis de clientes." />
+  <meta name="theme-color" content="#0033A0" />
+  <link rel="icon" href="assets/img/favicon.png" />
 
-  <header>
-    <h1>Alejandro E. Lindström</h1>
-    <p>Especialista en Automatización & Análisis de Datos para banca y fintech</p>
-    <span class="badge">Python · n8n · Streamlit · APIs · OCR</span>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Alejandro E. Lindström — Portfolio" />
+  <meta property="og:description" content="Automatización, scraping financiero, dashboards y análisis de clientes para banca." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/og-image.jpg" />
+
+  <!-- Fuente + Tailwind (CDN) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Schema (perfil profesional) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Alejandro E. Lindström",
+    "jobTitle":"Especialista en Automatización & Datos",
+    "email":"mailto:{{EMAIL}}",
+    "url":"{{PORTFOLIO_URL}}",
+    "sameAs":["{{LINKEDIN_URL}}","{{GITHUB_URL}}"]
+  }
+  </script>
+</head>
+
+<body class="font-inter bg-slate-50 text-slate-800">
+  <!-- ====== Barra de navegación (sticky) ====== -->
+  <header id="top" class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+    <nav class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-md bg-brand flex items-center justify-center text-white font-bold">AL</div>
+        <span class="sr-only">Inicio</span>
+      </a>
+      <button id="btnMenu" class="md:hidden p-2 rounded hover:bg-slate-100" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul id="navList" class="hidden md:flex items-center gap-6 text-sm font-semibold">
+        <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
+        <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+        <li><a href="#automatizaciones" class="nav-link">Automatizaciones</a></li>
+        <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+        <li><a href="#certificaciones" class="nav-link">Certificaciones</a></li>
+        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        <li><a href="{{CV_URL}}" class="btn-primary" target="_blank" rel="noopener">Descargar CV</a></li>
+      </ul>
+    </nav>
+    <!-- Menú móvil -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200">
+      <ul class="px-4 py-3 grid gap-3 text-sm font-semibold">
+        <li><a href="#sobre-mi" class="nav-link block">Sobre mí</a></li>
+        <li><a href="#proyectos" class="nav-link block">Proyectos</a></li>
+        <li><a href="#automatizaciones" class="nav-link block">Automatizaciones</a></li>
+        <li><a href="#habilidades" class="nav-link block">Habilidades</a></li>
+        <li><a href="#certificaciones" class="nav-link block">Certificaciones</a></li>
+        <li><a href="#contacto" class="nav-link block">Contacto</a></li>
+        <li><a href="{{CV_URL}}" class="btn-primary inline-block" target="_blank" rel="noopener">Descargar CV</a></li>
+      </ul>
+    </div>
   </header>
 
-  <main class="wrap">
+  <!-- ====== Hero ====== -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand/10 to-transparent">
+    <div class="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-2 items-center gap-10">
+      <div>
+        <h1 class="text-3xl md:text-5xl font-bold leading-tight">
+          Alejandro E. Lindström
+        </h1>
+        <p class="mt-3 text-brand font-semibold">Automatización & Análisis de Datos para banca y fintech</p>
+        <p class="mt-5 text-slate-600 max-w-prose">
+          Desarrollo soluciones que reducen tiempos operativos y elevan la calidad de decisión:
+          scraping financiero con alertas, tableros ejecutivos, y automatizaciones con n8n & APIs.
+          Foco en impacto, control y trazabilidad: resultados medibles con mentalidad de riesgo operativo.
+        </p>
 
-    <!-- SOBRE MÍ -->
-    <section id="sobre-mi" aria-labelledby="t-sobre-mi">
-      <h2 id="t-sobre-mi">Sobre mí</h2>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="chip">Python</span>
+          <span class="chip">n8n</span>
+          <span class="chip">Streamlit</span>
+          <span class="chip">APIs</span>
+          <span class="chip">OCR</span>
+          <span class="chip">Pandas</span>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#proyectos" class="btn-primary">Ver proyectos</a>
+          <a href="#contacto" class="btn-ghost">Contactar</a>
+        </div>
+      </div>
+
+      <figure class="justify-self-center">
+        <img src="assets/img/profile.jpg" alt="Foto de {{TU_NOMBRE}}" class="w-56 h-56 rounded-xl object-cover shadow-sm ring-1 ring-slate-200">
+        <figcaption class="sr-only">Foto profesional</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ====== Sobre mí (storytelling corto) ====== -->
+  <section id="sobre-mi" class="section">
+    <div class="container">
+      <h2 class="h2">Sobre mí</h2>
       <p class="lead">
-        Profesional motivado en automatización y análisis de datos con experiencia desarrollando soluciones basadas en Python para entornos bancarios y fintech. 
-        Capaz de extraer y monitorear indicadores, construir tableros para análisis competitivo y automatizar flujos con n8n y APIs. 
-        Reconocido por pensamiento analítico, resolución de problemas y enfoque proactivo hacia la transformación digital.
+        Empecé resolviendo tareas repetitivas con scripts y terminé diseñando **flujos robustos de automatización** para equipos de negocio.
+        Mi motivación es simple: <em>convertir datos y procesos en decisiones</em>. Trabajo cerca de las áreas usuarias, cuido la calidad de datos
+        y documento cada paso, porque en banca la confiabilidad es el producto.
       </p>
-    </section>
+      <ul class="mt-6 grid md:grid-cols-3 gap-4 text-sm text-slate-600">
+        <li class="card-neutral"><strong>Impacto:</strong> reducción de tiempos manuales, mejora de SLA y control de cambios.</li>
+        <li class="card-neutral"><strong>Gobierno:</strong> logs, validaciones y alertas para minimizar riesgo operativo.</li>
+        <li class="card-neutral"><strong>Entrega:</strong> prototipos ágiles que evolucionan a soluciones mantenibles.</li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- PROYECTOS -->
-    <section id="proyectos" aria-labelledby="t-proyectos">
-      <h2 id="t-proyectos">Proyectos destacados</h2>
+  <!-- ====== Proyectos destacados ====== -->
+  <section id="proyectos" class="section">
+    <div class="container">
+      <div class="flex items-center justify-between">
+        <h2 class="h2">Proyectos destacados</h2>
+        <span class="text-xs uppercase tracking-widest text-slate-500">banca · datos · automatización</span>
+      </div>
 
-      <div class="grid">
-        <article class="card">
-          <h3>Scraper de Indicadores & Alertas</h3>
-          <p>Python (Requests/BS4 + Selenium + APIs) con alertas automáticas ante variaciones &gt; 3% en tasas, dólar y bonos. Eliminó supervisión manual y aceleró la detección de cambios.</p>
-          <div>
-            <span class="pill">Python</span><span class="pill">Selenium</span><span class="pill">APIs</span><span class="pill">Automatización</span>
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <!-- Proyecto 1 -->
+        <article class="card group">
+          <header class="flex items-start justify-between">
+            <h3 class="h3">Scraper de Indicadores & Alertas</h3>
+            <span class="badge">Data Ops</span>
+          </header>
+          <p class="mt-2 text-slate-600">
+            Monitoreo de tasas, dólar y bonos con **alertas automáticas** (&gt;3%) vía email/Telegram.
+            Requests/BS4, Selenium, parsing robusto y control de cambios.
+          </p>
+          <div class="stack">
+            <span>Python</span><span>Selenium</span><span>APIs</span><span>Automatización</span>
           </div>
-          <div class="shot">
-            <img src="shots/scraper_alertas.gif" alt="Scraper financiero con alertas"
-                 onerror="this.onerror=null; this.src='shots/scraper_alertas.png';">
+          <!-- Preview: GIF con fallback a PNG -->
+          <figure class="shot mt-3">
+            <picture>
+              <source srcset="shots/scraper_alertas.gif" type="image/gif">
+              <img src="shots/scraper_alertas.png" alt="Scraper financiero con alertas" loading="lazy">
+            </picture>
+          </figure>
+          <div class="mt-4 flex gap-3">
+            <a href="{{PROYECTO_SCRAPER_URL}}" class="btn-ghost">Ver más</a>
           </div>
         </article>
 
-        <article class="card">
-          <h3>Dashboard de Monitoreo de Competencia</h3>
-          <p>Tablero en Streamlit consolidando datos de precios/promociones de bancos competidores. Aporta inteligencia de mercado para decisiones tácticas.</p>
-          <div>
-            <span class="pill">Streamlit</span><span class="pill">Pandas</span><span class="pill">ETL</span><span class="pill">Visualización</span>
+        <!-- Proyecto 2 -->
+        <article class="card group">
+          <header class="flex items-start justify-between">
+            <h3 class="h3">Dashboard de Monitoreo de Competencia</h3>
+            <span class="badge">Estrategia</span>
+          </header>
+          <p class="mt-2 text-slate-600">
+            Tablero en **Streamlit** con consolidación de promociones y precios de bancos competidores para decisiones tácticas.
+          </p>
+          <div class="stack">
+            <span>Streamlit</span><span>Pandas</span><span>ETL</span><span>Visualización</span>
           </div>
-          <div class="shot">
-            <img src="shots/dashboard_competencia_small.gif" alt="Dashboard de competencia"
-                 onerror="this.onerror=null; this.src='shots/dashboard_competencia.png';">
+          <figure class="shot mt-3">
+            <picture>
+              <source srcset="shots/dashboard_competencia_small.gif" type="image/gif">
+              <img src="shots/dashboard_competencia.png" alt="Dashboard de competencia" loading="lazy">
+            </picture>
+          </figure>
+          <div class="mt-4 flex gap-3">
+            <a href="{{PROYECTO_DASHBOARD_URL}}" class="btn-ghost">Ver más</a>
           </div>
         </article>
 
-        <article class="card">
-          <h3>Análisis de Comportamiento de Clientes</h3>
-          <p>Segmentación de patrones de uso en canales digitales con Pandas/estadística; recomendaciones de UX que mejoraron conversión y satisfacción.</p>
-          <div>
-            <span class="pill">Pandas</span><span class="pill">Estadística</span><span class="pill">UX insights</span>
+        <!-- Proyecto 3 -->
+        <article class="card group">
+          <header class="flex items-start justify-between">
+            <h3 class="h3">Análisis de Comportamiento de Clientes</h3>
+            <span class="badge">Customer Insights</span>
+          </header>
+          <p class="mt-2 text-slate-600">
+            Segmentación de uso en canales digitales; **recomendaciones de UX** que mejoran conversión y satisfacción.
+          </p>
+          <div class="stack">
+            <span>Pandas</span><span>Estadística</span><span>UX</span>
           </div>
-          <div class="shot">
-            <img src="shots/analisis_clientes.gif" alt="Gráficos de comportamiento de clientes"
-                 onerror="this.onerror=null; this.src='shots/analisis_clientes.png';">
+          <figure class="shot mt-3">
+            <picture>
+              <source srcset="shots/analisis_clientes.gif" type="image/gif">
+              <img src="shots/analisis_clientes.png" alt="Curvas de uso por segmento" loading="lazy">
+            </picture>
+          </figure>
+          <div class="mt-4 flex gap-3">
+            <a href="{{PROYECTO_ANALISIS_URL}}" class="btn-ghost">Ver más</a>
           </div>
         </article>
 
-        <article class="card">
-          <h3>Automatización & Bots Freelance</h3>
-          <p>Flujos n8n y bots en Python para procesos operativos (OCR + APIs + planillas). Reducción de tiempos manuales y mejora de precisión.</p>
-          <div>
-            <span class="pill">n8n</span><span class="pill">OCR</span><span class="pill">APIs</span><span class="pill">Productividad</span>
+        <!-- Proyecto 4 -->
+        <article class="card group">
+          <header class="flex items-start justify-between">
+            <h3 class="h3">Automatización & Bots</h3>
+            <span class="badge">Productividad</span>
+          </header>
+          <p class="mt-2 text-slate-600">
+            Flujos n8n y bots (OCR + APIs + planillas) con **logs y validaciones** para reducir errores y tiempos manuales.
+          </p>
+          <div class="stack">
+            <span>n8n</span><span>OCR</span><span>APIs</span>
           </div>
-          <div class="shot">
-            <img src="shots/n8n_bots.gif" alt="Flujos de automatización en n8n"
-                 onerror="this.onerror=null; this.src='shots/n8n_bots.png';">
+          <figure class="shot mt-3">
+            <picture>
+              <source srcset="shots/n8n_bots.gif" type="image/gif">
+              <img src="shots/n8n_bots.png" alt="Flujos de automatización en n8n" loading="lazy">
+            </picture>
+          </figure>
+          <div class="mt-4 flex gap-3">
+            <a href="{{PROYECTO_BOTS_URL}}" class="btn-ghost">Ver más</a>
           </div>
         </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- HABILIDADES -->
-    <section id="habilidades" aria-labelledby="t-hab">
-      <h2 id="t-hab">Habilidades & herramientas</h2>
-      <div class="chips" role="list">
-        <span class="chip" role="listitem">Python (BS4, Selenium, Pandas, NumPy)</span>
-        <span class="chip" role="listitem">n8n</span>
-        <span class="chip" role="listitem">Streamlit</span>
-        <span class="chip" role="listitem">Integración de APIs</span>
-        <span class="chip" role="listitem">OCR</span>
-        <span class="chip" role="listitem">Google Sheets / Excel</span>
-        <span class="chip" role="listitem">Dashboards & Visualización</span>
-        <span class="chip" role="listitem">Automatización de procesos</span>
+  <!-- ====== Automatizaciones (valor para negocio) ====== -->
+  <section id="automatizaciones" class="section bg-white">
+    <div class="container">
+      <h2 class="h2">Automatizaciones</h2>
+      <div class="mt-6 grid md:grid-cols-3 gap-6">
+        <div class="card-neutral">
+          <h3 class="h4">Alertas de mercado</h3>
+          <p class="mt-1 text-slate-600">Monitoreo de indicadores (tasas, dólar, bonos) y alertas con umbrales dinámicos.</p>
+          <ul class="list">
+            <li>&minus;3.5% / +3.5% sensibilidad configurable</li>
+            <li>Envió a email / Telegram</li>
+            <li>Logs y auditoría</li>
+          </ul>
+        </div>
+        <div class="card-neutral">
+          <h3 class="h4">Seguimiento operativo</h3>
+          <p class="mt-1 text-slate-600">Asignación de tareas y tickets internos integrados con planillas/DB.</p>
+          <ul class="list">
+            <li>Recordatorios automáticos</li>
+            <li>SLA y tableros de avance</li>
+            <li>Escalamiento por reglas</li>
+          </ul>
+        </div>
+        <div class="card-neutral">
+          <h3 class="h4">Informes diarios</h3>
+          <p class="mt-1 text-slate-600">Generación y distribución de reportes (PDF/Sheet) firmados digitalmente.</p>
+          <ul class="list">
+            <li>Programación nativa</li>
+            <li>Control de versiones</li>
+            <li>Validaciones previas</li>
+          </ul>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CONTACTO -->
-    <section id="contacto" aria-labelledby="t-contacto">
-      <h2 id="t-contacto">Contacto</h2>
-      <p class="lead muted">Basado en Oberá, Misiones. Disponibilidad para trabajo híbrido o remoto.</p>
-      <p><a class="cta" href="mailto:alejandroacua228@gmail.com">Escribir a alejandroacua228@gmail.com</a></p>
-      <p class="muted">GitHub: <strong>alejandroacua228-art</strong></p>
-    </section>
+  <!-- ====== Habilidades ====== -->
+  <section id="habilidades" class="section">
+    <div class="container">
+      <h2 class="h2">Habilidades técnicas</h2>
+      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+        <div class="skill">
+          <h3 class="h4">Lenguajes</h3>
+          <p>Python (Pandas, NumPy), JavaScript básico</p>
+        </div>
+        <div class="skill">
+          <h3 class="h4">Data & BI</h3>
+          <p>Streamlit, matplotlib, Google Sheets/Excel</p>
+        </div>
+        <div class="skill">
+          <h3 class="h4">Automatización</h3>
+          <p>n8n, RPA light, OCR, Integración de APIs</p>
+        </div>
+        <div class="skill">
+          <h3 class="h4">Prácticas</h3>
+          <p>Versionado Git, documentación, logs, testing básico</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  </main>
+  <!-- ====== Certificaciones / Libros ====== -->
+  <section id="certificaciones" class="section bg-white">
+    <div class="container">
+      <h2 class="h2">Certificaciones y lecturas</h2>
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <div class="card-neutral">
+          <h3 class="h4">Certificaciones sugeridas / en curso</h3>
+          <ul class="list">
+            <li>Google Data Analytics (Coursera) — {{ESTADO_CERT_1}}</li>
+            <li>Scrum Fundamentals — {{ESTADO_CERT_2}}</li>
+            <li>n8n Advanced Automation — {{ESTADO_CERT_3}}</li>
+          </ul>
+        </div>
+        <div class="card-neutral">
+          <h3 class="h4">Libros clave</h3>
+          <ul class="list">
+            <li>Data Pipelines with Python (aprendizaje estructurado)</li>
+            <li>Designing Data-Intensive Applications (robustez)</li>
+            <li>Lean Analytics (enfoque en métricas accionables)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer>© <span id="year"></span> Alejandro E. Lindström — Portfolio</footer>
+  <!-- ====== Contacto ====== -->
+  <section id="contacto" class="section">
+    <div class="container">
+      <h2 class="h2">Contacto profesional</h2>
+      <p class="text-slate-600">Con base en Oberá, Misiones. Disponibilidad para esquema híbrido o remoto.</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="{{LINKEDIN_URL}}" target="_blank" rel="noopener" class="btn-primary">
+          <i class="fa-brands fa-linkedin mr-2"></i> LinkedIn
+        </a>
+        <a href="mailto:{{EMAIL}}" class="btn-ghost">
+          <i class="fa-regular fa-envelope mr-2"></i> {{EMAIL}}
+        </a>
+        <a href="{{CV_URL}}" target="_blank" rel="noopener" class="btn-ghost">
+          <i class="fa-regular fa-file-lines mr-2"></i> Descargar CV
+        </a>
+        <a href="{{GITHUB_URL}}" target="_blank" rel="noopener" class="btn-ghost">
+          <i class="fa-brands fa-github mr-2"></i> GitHub
+        </a>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    // Año dinámico
-    document.getElementById('year').textContent = new Date().getFullYear();
+  <!-- ====== Footer ====== -->
+  <footer class="border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-8 text-sm text-slate-600 grid md:grid-cols-3 gap-6 items-center">
+      <div>&copy; <span id="year"></span> Alejandro E. Lindström</div>
+      <ul class="flex gap-4 justify-center">
+        <li><a href="#sobre-mi" class="hover:text-brand">Sobre mí</a></li>
+        <li><a href="#proyectos" class="hover:text-brand">Proyectos</a></li>
+        <li><a href="#contacto" class="hover:text-brand">Contacto</a></li>
+      </ul>
+      <div class="text-right hidden md:block">Hecho con foco en **claridad, impacto y control**.</div>
+    </div>
+  </footer>
 
-    // Respeta "reducir movimiento": si el usuario prefiere menos animación, usar PNGs
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (reduce.matches) {
-      document.querySelectorAll('.shot img').forEach(img => {
-        const png = img.getAttribute('onerror')?.match(/'(.*?)'/g);
-        if (png && png[0]) {
-          const fallback = png[0].replace(/'/g,'');
-          img.src = fallback;
-        }
-      });
-    }
-  </script>
+  <!-- Font Awesome + Scripts -->
+  <script src="https://kit.fontawesome.com/a2e0e9bd0b.js" crossorigin="anonymous"></script>
+  <script src="assets/js/scripts.js"></script>
 </body>
 </html>
