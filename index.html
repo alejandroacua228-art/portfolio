@@ -8,9 +8,8 @@
   <style>
     :root{
       --bg:#f6f7fb; --card:#ffffff; --ink:#1f2937; --muted:#6b7280;
-      --brand:#0f766e; --brand-2:#115e59; --ring:#a7f3d0; --chip:#eef2ff;
-      --shadow:0 8px 24px rgba(2,6,23,.08);
-      --radius:18px;
+      --brand:#0f766e; --brand-2:#115e59; --chip:#eef2ff; --line:#e5e7eb;
+      --shadow:0 8px 24px rgba(2,6,23,.08); --radius:18px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -42,7 +41,7 @@
     .card h3{ margin:0 0 8px; font-size:18px }
     .card p{ margin:0 0 10px; color:var(--muted); line-height:1.55 }
     .pill{ display:inline-block; font-size:12px; background:#eef2ff; padding:6px 10px; border-radius:999px; margin:8px 6px 0 0 }
-    .shot{ margin-top:12px; border-radius:12px; overflow:hidden; border:1px solid #eef2f7; background:#fafafa; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center }
+    .shot{ margin-top:12px; border-radius:12px; overflow:hidden; border:1px solid var(--line); background:#fafafa; aspect-ratio:16/9 }
     .shot img{ width:100%; height:100%; object-fit:cover; display:block }
     .chips{ display:flex; flex-wrap:wrap; gap:8px }
     .chip{ background:#ecfeff; color:#134e4a; border:1px solid #99f6e4; padding:8px 12px; border-radius:999px; font-size:13px; font-weight:600 }
@@ -84,7 +83,8 @@
             <span class="pill">Python</span><span class="pill">Selenium</span><span class="pill">APIs</span><span class="pill">Automatización</span>
           </div>
           <div class="shot">
-            <img src="shots/scraper_alertas.png" alt="Scraper financiero con alertas">
+            <img src="shots/scraper_alertas.gif" alt="Scraper financiero con alertas"
+                 onerror="this.onerror=null; this.src='shots/scraper_alertas.png';">
           </div>
         </article>
 
@@ -95,7 +95,8 @@
             <span class="pill">Streamlit</span><span class="pill">Pandas</span><span class="pill">ETL</span><span class="pill">Visualización</span>
           </div>
           <div class="shot">
-            <img src="shots/dashboard_competencia.png" alt="Dashboard de competencia">
+            <img src="shots/dashboard_competencia.gif" alt="Dashboard de competencia"
+                 onerror="this.onerror=null; this.src='shots/dashboard_competencia.png';">
           </div>
         </article>
 
@@ -106,7 +107,8 @@
             <span class="pill">Pandas</span><span class="pill">Estadística</span><span class="pill">UX insights</span>
           </div>
           <div class="shot">
-            <img src="shots/analisis_clientes.png" alt="Gráficos de comportamiento de clientes">
+            <img src="shots/analisis_clientes.gif" alt="Gráficos de comportamiento de clientes"
+                 onerror="this.onerror=null; this.src='shots/analisis_clientes.png';">
           </div>
         </article>
 
@@ -117,7 +119,8 @@
             <span class="pill">n8n</span><span class="pill">OCR</span><span class="pill">APIs</span><span class="pill">Productividad</span>
           </div>
           <div class="shot">
-            <img src="shots/n8n_bots.png" alt="Flujos de automatización en n8n">
+            <img src="shots/n8n_bots.gif" alt="Flujos de automatización en n8n"
+                 onerror="this.onerror=null; this.src='shots/n8n_bots.png';">
           </div>
         </article>
       </div>
@@ -149,6 +152,22 @@
   </main>
 
   <footer>© <span id="year"></span> Alejandro E. Lindström — Portfolio</footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <script>
+    // Año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Respeta "reducir movimiento": si el usuario prefiere menos animación, usar PNGs
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduce.matches) {
+      document.querySelectorAll('.shot img').forEach(img => {
+        const png = img.getAttribute('onerror')?.match(/'(.*?)'/g);
+        if (png && png[0]) {
+          const fallback = png[0].replace(/'/g,'');
+          img.src = fallback;
+        }
+      });
+    }
+  </script>
 </body>
 </html>
