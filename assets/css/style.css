@@ -1,0 +1,58 @@
+/* ===== Variables & presets ===== */
+:root{
+  --brand:#0033A0;         /* Azul Galicia */
+  --brand-600:#0F3FAF;
+  --brand-50:#EEF2FF;
+}
+*{scroll-behavior:smooth}
+.font-inter{font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+
+/* ===== Utilidades ===== */
+.bg-brand{background:var(--brand)}
+.text-brand{color:var(--brand)}
+.btn-primary{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.5rem 1rem;border-radius:.5rem;color:#fff;font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.05);
+  background:linear-gradient(180deg, var(--brand), var(--brand-600));
+  border:1px solid #0c358f;
+}
+.btn-primary:hover{filter:brightness(.96)}
+.btn-ghost{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.5rem 1rem;border-radius:.5rem;font-weight:600;border:1px solid #CBD5E1;
+  color:#0f172a;background:#fff;
+}
+.btn-ghost:hover{background:#F8FAFC}
+.chip{
+  padding:.25rem .75rem;border-radius:999px;font-size:.75rem;font-weight:600;border:1px solid #E2E8F0;background:#F8FAFC;color:#0f172a;
+}
+
+/* ===== Secciones ===== */
+.section{padding:64px 0}
+.container{max-width:72rem;margin:0 auto;padding:0 1rem}
+.h2{font-size:1.5rem;font-weight:700}
+.h3{font-size:1.125rem;font-weight:700}
+.h4{font-weight:700}
+.lead{font-size:1.05rem;line-height:1.7}
+
+/* ===== Componentes ===== */
+.card{
+  border-radius:.75rem;border:1px solid #E5E7EB;background:#fff;padding:1.25rem;transition:box-shadow .15s, transform .15s;
+}
+.card:hover{box-shadow:0 12px 28px rgba(2,6,23,.08);transform:translateY(-2px)}
+.card-neutral{
+  border-radius:.75rem;border:1px solid #E5E7EB;background:#fff;padding:1.25rem;
+}
+.stack{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+.stack span{font-size:.75rem;border:1px solid #E5E7EB;border-radius:999px;padding:.25rem .5rem;background:#F8FAFC}
+.badge{font-size:.65rem;letter-spacing:.05em;text-transform:uppercase;padding:.25rem .5rem;border-radius:999px;background:#EEF2FF;color:#111827}
+.shot{overflow:hidden;border-radius:12px;border:1px solid #E5E7EB;background:#F8FAFC;aspect-ratio:16/9}
+.card-neutral .list{margin-top:.5rem;line-height:1.65}
+.skill{border:1px solid #E5E7EB;border-radius:12px;background:#fff;padding:16px}
+
+/* ===== Navegación activa ===== */
+.nav-link{position:relative}
+.nav-link.active{color:var(--brand)}
+.nav-link.active::after{
+  content:"";position:absolute;left:0;right:0;bottom:-8px;margin:auto;width:18px;height:2px;background:var(--brand)
+}
