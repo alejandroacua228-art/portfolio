@@ -1,107 +1,154 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Alejandro Lindström</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f5f5f5;
-            color: #333;
-        }
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        section {
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: auto;
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-top: 30px;
-        }
-        h2 {
-            color: #2c3e50;
-        }
-        .project {
-            margin-bottom: 20px;
-        }
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            margin-top: 40px;
-        }
-        .btn {
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .image-block {
-            margin-bottom: 30px;
-        }
-        .image-block img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .image-block p {
-            margin-top: 10px;
-            font-style: italic;
-            color: #555;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alejandro E. Lindström — Portfolio</title>
+  <meta name="description" content="Especialista en Automatización y Análisis de Datos para banca y fintech. Proyectos con Python, n8n, Streamlit y APIs."/>
+  <style>
+    :root{
+      --bg:#f6f7fb; --card:#ffffff; --ink:#1f2937; --muted:#6b7280;
+      --brand:#0f766e; --brand-2:#115e59; --ring:#a7f3d0; --chip:#eef2ff;
+      --shadow:0 8px 24px rgba(2,6,23,.08);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      color:var(--ink); background:linear-gradient(180deg,#f0fdfa 0%, var(--bg) 30%);
+    }
+    header{
+      padding:56px 20px 36px; text-align:center; position:relative; overflow:hidden;
+      background: radial-gradient(1200px 400px at 50% -80px, #ccfbf1 0%, transparent 60%);
+    }
+    header h1{ margin:0; font-size: clamp(28px, 4vw, 40px) }
+    header p{ margin:10px 0 0; color:var(--muted); font-size:clamp(14px,2.2vw,16px) }
+    .badge{
+      display:inline-block; margin-top:14px; padding:6px 12px; border-radius:999px;
+      background:#ecfeff; color:var(--brand-2); font-weight:600; font-size:14px; border:1px solid #cffafe;
+    }
+    .wrap{ max-width: 980px; margin: 0 auto; padding: 0 20px 60px }
+    section{ background:var(--card); box-shadow:var(--shadow); border-radius:var(--radius); padding:28px; margin:22px 0 }
+    section h2{ margin:0 0 14px; font-size:clamp(20px,2.6vw,24px) }
+    .lead{ color:var(--muted); line-height:1.55 }
+    .grid{ display:grid; gap:16px }
+    @media (min-width: 820px){ .grid{ grid-template-columns: repeat(2, 1fr) } }
+    .card{
+      background:#fff; border:1px solid #eef2f7; border-radius:14px; padding:18px;
+      transition: transform .15s, box-shadow .15s, border-color .15s;
+    }
+    .card:hover{ transform:translateY(-2px); box-shadow:var(--shadow); border-color:#e5e7eb }
+    .card h3{ margin:0 0 8px; font-size:18px }
+    .card p{ margin:0 0 10px; color:var(--muted); line-height:1.55 }
+    .pill{ display:inline-block; font-size:12px; background:#eef2ff; padding:6px 10px; border-radius:999px; margin:8px 6px 0 0 }
+    .shot{ margin-top:12px; border-radius:12px; overflow:hidden; border:1px solid #eef2f7; background:#fafafa; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center }
+    .shot img{ width:100%; height:100%; object-fit:cover; display:block }
+    .chips{ display:flex; flex-wrap:wrap; gap:8px }
+    .chip{ background:#ecfeff; color:#134e4a; border:1px solid #99f6e4; padding:8px 12px; border-radius:999px; font-size:13px; font-weight:600 }
+    .cta{ display:inline-block; background:var(--brand); color:#fff; padding:12px 16px; border-radius:10px; text-decoration:none; font-weight:700; border:1px solid #0d9488; box-shadow:0 8px 18px rgba(13,148,136,.18) }
+    .cta:hover{ background:var(--brand-2) }
+    .muted{ color:var(--muted) }
+    footer{ text-align:center; color:var(--muted); padding:24px 0 40px }
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>Alejandro Lindström</h1>
-    <p>Desarrollador autodidacta | Automatización | Python | IA</p>
-</header>
+  <header>
+    <h1>Alejandro E. Lindström</h1>
+    <p>Especialista en Automatización & Análisis de Datos para banca y fintech</p>
+    <span class="badge">Python · n8n · Streamlit · APIs · OCR</span>
+  </header>
 
-<section>
-    <h2>Sobre mí</h2>
-    <p>Soy un profesional autodidacta apasionado por la tecnología, la automatización de flujos de trabajo, y el desarrollo de soluciones con inteligencia artificial. Tengo experiencia real creando bots, recolectando datos públicos con Python, y utilizando herramientas como ChatGPT, Google Sheets y n8n.</p>
+  <main class="wrap">
 
-    <h2>Proyectos</h2>
-    <div class="project">
-        <h3>🧠 Bot de Automatización con IA</h3>
-        <p>Desarrollo de un asistente inteligente que ejecuta tareas en la PC en tiempo real, optimizando procesos manuales mediante scripts.</p>
-    </div>
-    <div class="project">
-        <h3>📊 Recolector de datos públicos (Python)</h3>
-        <p>Scripts personalizados que extraen información de sitios web para crear datasets utilizables para análisis o entrenamiento de modelos.</p>
-    </div>
-    <div class="project">
-        <h3>🔄 Flujos de automatización en n8n</h3>
-        <p>Creación de flujos para tareas repetitivas conectando múltiples servicios (email, Google Sheets, APIs externas, etc.).</p>
-    </div>
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" aria-labelledby="t-sobre-mi">
+      <h2 id="t-sobre-mi">Sobre mí</h2>
+      <p class="lead">
+        Profesional motivado en automatización y análisis de datos con experiencia desarrollando soluciones basadas en Python para entornos bancarios y fintech. 
+        Capaz de extraer y monitorear indicadores, construir tableros para análisis competitivo y automatizar flujos con n8n y APIs. 
+        Reconocido por pensamiento analítico, resolución de problemas y enfoque proactivo hacia la transformación digital.
+      </p>
+    </section>
 
-    <!-- Imágenes ilustrativas -->
-    <div class="image-block">
-        <img src="flujos_de_automatización_para_la_atencion_de_clientes_en_un_banco.png" alt="Automatización para atención al cliente">
-        <p>Ejemplos visuales de automatización de procesos orientados a la atención de clientes en un banco. Desde tareas simples hasta flujos avanzados que mejoran la eficiencia, reducen tiempos de respuesta y elevan la experiencia del cliente.</p>
-    </div>
-    
-    <div class="image-block">
-        <img src="automatización_que_agilizan_operaciones_y_comunicacion_interna_del_banco.png" alt="Automatización de operaciones internas">
-        <p>Automatizaciones que optimizan las operaciones internas de un banco: asignación de tareas, gestión de tickets, informes diarios y actualización de políticas. Herramientas clave para potenciar la productividad del equipo.</p>
-    </div>
-</section>
+    <!-- PROYECTOS -->
+    <section id="proyectos" aria-labelledby="t-proyectos">
+      <h2 id="t-proyectos">Proyectos destacados</h2>
 
-<footer>
-    <p>Contacto: alejandroacua228-art | GitHub Pages</p>
-</footer>
+      <div class="grid">
+        <article class="card">
+          <h3>Scraper de Indicadores & Alertas</h3>
+          <p>Python (Requests/BS4 + Selenium + APIs) con alertas automáticas ante variaciones &gt; 3% en tasas, dólar y bonos. Eliminó supervisión manual y aceleró la detección de cambios.</p>
+          <div>
+            <span class="pill">Python</span><span class="pill">Selenium</span><span class="pill">APIs</span><span class="pill">Automatización</span>
+          </div>
+          <div class="shot">
+            <img src="shots/scraper_alertas.png" alt="Scraper financiero con alertas">
+          </div>
+        </article>
 
+        <article class="card">
+          <h3>Dashboard de Monitoreo de Competencia</h3>
+          <p>Tablero en Streamlit consolidando datos de precios/promociones de bancos competidores. Aporta inteligencia de mercado para decisiones tácticas.</p>
+          <div>
+            <span class="pill">Streamlit</span><span class="pill">Pandas</span><span class="pill">ETL</span><span class="pill">Visualización</span>
+          </div>
+          <div class="shot">
+            <img src="shots/dashboard_competencia.png" alt="Dashboard de competencia">
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Análisis de Comportamiento de Clientes</h3>
+          <p>Segmentación de patrones de uso en canales digitales con Pandas/estadística; recomendaciones de UX que mejoraron conversión y satisfacción.</p>
+          <div>
+            <span class="pill">Pandas</span><span class="pill">Estadística</span><span class="pill">UX insights</span>
+          </div>
+          <div class="shot">
+            <img src="shots/analisis_clientes.png" alt="Gráficos de comportamiento de clientes">
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Automatización & Bots Freelance</h3>
+          <p>Flujos n8n y bots en Python para procesos operativos (OCR + APIs + planillas). Reducción de tiempos manuales y mejora de precisión.</p>
+          <div>
+            <span class="pill">n8n</span><span class="pill">OCR</span><span class="pill">APIs</span><span class="pill">Productividad</span>
+          </div>
+          <div class="shot">
+            <img src="shots/n8n_bots.png" alt="Flujos de automatización en n8n">
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="habilidades" aria-labelledby="t-hab">
+      <h2 id="t-hab">Habilidades & herramientas</h2>
+      <div class="chips" role="list">
+        <span class="chip" role="listitem">Python (BS4, Selenium, Pandas, NumPy)</span>
+        <span class="chip" role="listitem">n8n</span>
+        <span class="chip" role="listitem">Streamlit</span>
+        <span class="chip" role="listitem">Integración de APIs</span>
+        <span class="chip" role="listitem">OCR</span>
+        <span class="chip" role="listitem">Google Sheets / Excel</span>
+        <span class="chip" role="listitem">Dashboards & Visualización</span>
+        <span class="chip" role="listitem">Automatización de procesos</span>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" aria-labelledby="t-contacto">
+      <h2 id="t-contacto">Contacto</h2>
+      <p class="lead muted">Basado en Oberá, Misiones. Disponibilidad para trabajo híbrido o remoto.</p>
+      <p><a class="cta" href="mailto:alejandroacua228@gmail.com">Escribir a alejandroacua228@gmail.com</a></p>
+      <p class="muted">GitHub: <strong>alejandroacua228-art</strong></p>
+    </section>
+
+  </main>
+
+  <footer>© <span id="year"></span> Alejandro E. Lindström — Portfolio</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
